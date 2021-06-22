@@ -12,6 +12,10 @@ module.exports = {
         `${process.env.DIRECTORY}/database/migration/*.${process.env.TYPE_FILE}`,
 
     ],
+    "entities": [
+        `${process.env.DIRECTORY}/entity/*.${process.env.TYPE_FILE}`,
+
+    ],
 
     "cli": {
         "entitiesDir": `${process.env.DIRECTORY}/entity`,

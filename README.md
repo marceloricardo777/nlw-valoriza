@@ -12,7 +12,8 @@
     
 - Compliments registration
     - it is not possible for a user to praise himself
-    - 
+    - it is not allowed to register compliments for invalid users
+    - the user must be authenticated in the app
 
 # Migrations
 
