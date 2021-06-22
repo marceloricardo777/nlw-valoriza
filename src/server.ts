@@ -1,6 +1,9 @@
 import express from 'express';
-
+import 'reflect-metadata';
+import './database';
 const app = express();
+
+
 
 app.get('/test', (request, response) => {
     return response.send("Olá NLW")
