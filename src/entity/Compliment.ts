@@ -1,22 +1,21 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from 'uuid';
-@Entity('users')
-class User {
+@Entity('compliments')
+class Compliment {
     @PrimaryColumn()
     readonly id: string;
     @Column()
-    name: string;
+    user_sender: string;
     @Column()
-    email: string;
+    user_receiver: string;
     @Column()
-    admin: boolean;
+    tag_id: string;
     @Column()
-    password: string
+    message: string;
     @CreateDateColumn()
     created_at: Date;
-    @UpdateDateColumn()
-    updated_at: Date;
-    constructor(props: Omit<User, 'id'>, id?: string) {
+
+    constructor(props: Omit<Compliment, 'id'>, id?: string) {
         Object.assign(this, props);
         if (!id) {
             this.id = uuid();
@@ -25,4 +24,4 @@ class User {
 
 }
 
-export { User };
+export { Compliment };
