@@ -4,10 +4,12 @@ import 'reflect-metadata';
 import './database';
 import { errors } from './middlewares/errors';
 import { router } from './routes';
+import { logger } from './logger';
 
 const app = express();
 
 app.use(express.json());
+app.use(logger);
 
 app.use(router);
 app.use(errors);

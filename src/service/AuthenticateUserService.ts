@@ -9,9 +9,10 @@ interface IAuthenticateRequest {
 
 class AuthenticateUserService {
     async execute({ email, password }: IAuthenticateRequest) {
+
         const userRepositories = getCustomRepository(UsersRepositories);
         const user = await userRepositories.findOne({
-            email: email
+            where: { email: email }, select: ['password', 'email', 'id'],
         });
 
         if (!user) {
@@ -19,7 +20,7 @@ class AuthenticateUserService {
             throw new Error('Email/Password incorret')
         }
 
-        const passwordMatch = await compare(password, user.password)
+        const passwordMatch = await compare(password, user.password);
         if (!passwordMatch) {
             throw new Error('Email/Password incorret')
         }
@@ -30,6 +31,7 @@ class AuthenticateUserService {
                 subject: user.id,
                 expiresIn: '1d'
             });
+
         return token;
     }
 }

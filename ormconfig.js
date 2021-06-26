@@ -1,9 +1,13 @@
 
 module.exports = {
-    "type": "sqlite",
     "database": process.env.DATABASE,
+    "type": "postgres",
+    "host": process.env.HOST,
+    "port": 5432,
+    "username": process.env.USERNAME_BD,
+    "password": process.env.PASSWORD,
     // "logging": false,
-    // "synchronize": true,
+    "synchronize": true,
     // ssl: {
     //     rejectUnauthorized: false
     // },
