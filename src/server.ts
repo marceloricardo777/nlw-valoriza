@@ -13,6 +13,6 @@ app.use(logger);
 
 app.use(router);
 app.use(errors);
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Server is running')
 });
