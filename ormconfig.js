@@ -8,9 +8,9 @@ module.exports = {
     "password": process.env.PASSWORD,
     // "logging": false,
     "synchronize": true,
-    // ssl: {
-    //     rejectUnauthorized: false
-    // },
+    ssl: {
+        rejectUnauthorized: false
+    },
 
     "migrations": [
         `${process.env.DIRECTORY}/database/migration/*.${process.env.TYPE_FILE}`,
